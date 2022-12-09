@@ -211,9 +211,7 @@ export default class PuzzleController extends GameController {
         ]));
     }
 
-    canAppend = () =>
-        this.moves.length > this.solution.length &&
-        this.moves.slice(0, this.solution.length).join(' ') === this.solution.join(' ');
+    canAppend = () => this.moves.length % 2 == 1
 
     canForward = () =>
         this.moves.length < this.solution.length &&
