@@ -67,9 +67,11 @@ selection {
 }
 .pocket-top {
   grid-area: pocket-top;
+	height: 52px;
 }
 .pocket-bot {
   grid-area: pocket-bot;
+	height: 52px;
 }
 .puzzle-ui {
   grid-area: ui;
