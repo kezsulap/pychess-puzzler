@@ -17,10 +17,14 @@ export default function(data: ServerData): VNode {
     const fullmove = parseInt(parts[parts.length - 1]);
     const ply = (fullmove -1) * 2 + ((color === "b") ? 1 : 0);
     const fen = parts.join('_').replace(/\+/g, '.');
+    let site = data.site;
 
     let gameUrl;
     if (data.gameId) {
         gameUrl = `${data.pychessURL}/${data.gameId}?ply=${ply}`;
+    } else if (site !== undefined && /.*(lichess.org)|(lishogi.org)|(playstrategy.org).*/.test(site!)) {
+        site = '';
+        gameUrl = `${data.site}#${ply}`;
     } else {
         gameUrl = `${data.pychessURL}/analysis/${data.variant}?fen=${fen}`;
     }
@@ -65,7 +69,7 @@ export default function(data: ServerData): VNode {
                 h('div.puzzle-info', [
                     h('p.puzzle-info-title', `Candidate id: ${data._id}`),
                     h('p', ['Site: ',
-                        ('site' in data) ? h('a.analyse', { attrs: { href: `${data.site}`, target: '_blank'} }, `${data.site}`) : '',
+                        (site) ? h('a.analyse', { attrs: { href: `${site}`, target: '_blank'} }, `${site}`) : '',
                     ]),
                     h('p', [
                         'From game: ',
