@@ -67,11 +67,9 @@ selection {
 }
 .pocket-top {
   grid-area: pocket-top;
-	height: 52px;
 }
 .pocket-bot {
   grid-area: pocket-bot;
-	height: 52px;
 }
 .puzzle-ui {
   grid-area: ui;
@@ -150,4 +148,10 @@ san, uci {
   opacity: .3;
   font-weight: bold;
   display: inline-block;
+}
+p.solution {
+	height: 74px;
+}
+p.moves {
+	height: 74px;
 }
