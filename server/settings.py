@@ -26,7 +26,7 @@ LICHESS_ACCOUNT_API_URL = "https://lichess.org/api/account"
 LICHESS_API_TOKEN = os.getenv("LICHESS_API_TOKEN")
 
 MONGO_HOST = os.getenv("MONGO_HOST", "mongodb://127.0.0.1:27017")
-MONGO_DB_NAME = "pychess-puzzler"
+MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "pychess-puzzler")
 
 # secret_key for session encryption
 # key must be 32 url-safe base64-encoded bytes
